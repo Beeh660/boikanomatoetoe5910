@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boikano's Fridge Finds | Products</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5efe4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c1e14;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff9f2;
+            border-radius: 30px;
+            box-shadow: 0 15px 30px rgba(59, 38, 26, 0.2);
+            overflow: hidden;
+            border: 1px solid #d4bb9f;
+        }
+
+        /* Navigation - Dark Brown */
+        nav {
+            background-color: #4a3729;
+            padding: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            border-bottom: 4px solid #b78c6a;
+        }
+
+        nav a {
+            color: #f5e6d8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 0.2rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom-color: #e6b17e;
+            color: #ffffff;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 2.5rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #3b281d;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #4a3729;
+            margin: 2rem 0 1.5rem 0;
+            border-left: 8px solid #a5724b;
+            padding-left: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #5c4030;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            background: #f0e4d6;
+            padding: 1.5rem;
+            border-radius: 40px;
+            margin-bottom: 2rem;
+        }
+
+        /* Product Grid - Larger for Products Page */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+            margin: 2.5rem 0;
+        }
+
+        .product-card {
+            background: #fcf6ed;
+            border-radius: 40px;
+            padding: 2rem 1.5rem;
+            flex: 1 1 260px;
+            max-width: 300px;
+            box-shadow: 0 15px 25px rgba(74, 55, 41, 0.2);
+            border: 2px solid #d4bb9f;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: #b78c6a;
+            box-shadow: 0 20px 30px rgba(74, 55, 41, 0.3);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 35px;
+            border: 4px solid #b78c6a;
+            background-color: #d9c2aa;
+            margin-bottom: 1rem;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #3b281d;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.6rem;
+            color: #8b5e3c;
+            font-weight: 800;
+            margin: 0.5rem 0;
+        }
+
+        .product-warranty {
+            background: #e7d8c6;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .product-specs {
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            color: #5c4030;
+        }
+
+        /* Price Lists Section */
+        .price-section {
+            background: #e7d8c6;
+            border-radius: 50px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .price-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .price-column {
+            flex: 1 1 300px;
+            background: #fcf6ed;
+            border-radius: 40px;
+            padding: 1.5rem;
+        }
+
+        .price-column h4 {
+            font-size: 1.5rem;
+            color: #4a3729;
+            text-align: center;
+            border-bottom: 3px solid #b78c6a;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-list {
+            list-style: none;
+        }
+
+        .price-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #c3aa8f;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .price-list .price {
+            font-weight: 700;
+            color: #8b5e3c;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f0e4d6;
+            border-radius: 50px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .service-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 30px;
+            margin: 1rem 0;
+            border-left: 8px solid #7b5a41;
+        }
+
+        /* Links */
+        .internal-link {
+            display: inline-block;
+            background: #4a3729;
+            color: #f5e6d8;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .internal-link:hover {
+            background: #5c4030;
+        }
+
+        /* Footer */
+        footer {
+            background: #d9c2aa;
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid #ac8b6b;
+            color: #2c1e14;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: #4a3729;
+            text-decoration: underline 2px #7b5a41;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .product-price {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="about.html">📖 About Startup</a>
+            <a href="products.html">❄️ Products</a>
+            <a href="business.html">📊 Business Model</a>
+            <a href="contact.html">📞 Contact</a>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content">
+            <h1>❄️ Our Fridges & Services</h1>
+            <div class="intro-text">
+                Every fridge includes 3-month warranty, free delivery in Maseru, and 48-hour testing before dispatch.
+            </div>
+
+            <!-- Product Images - Featured Items -->
+            <h2>🔥 Featured Fridges</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/p1.jpg" alt="Defy 400L Fridge">
+                    <div class="product-title">Defy 400L</div>
+                    <div class="product-price">R 4,490</div>
+                    <div class="product-warranty">6-Month Warranty</div>
+                    <div class="product-specs">Black · Frost Free · Energy Efficient</div>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/p2.jpg" alt="Bosch 280L Fridge">
+                    <div class="product-title">Bosch 280L</div>
+                    <div class="product-price">R 3,790</div>
+                    <div class="product-warranty">6-Month Warranty</div>
+                    <div class="product-specs">White · Like New Condition</div>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/p3.jpg" alt="Samsung 222L">
+                    <div class="product-title">Samsung 222L</div>
+                    <div class="product-price">R 2,690</div>
+                    <div class="product-warranty">3-Month Warranty</div>
+                    <div class="product-specs">Compact · Perfect for Small Flats</div>
+                </div>
+
+                <div class="product-card">
+                    <img src="images/p4.jpg" alt="Hisense 340L">
+                    <div class="product-title">Hisense 340L</div>
+                    <div class="product-price">R 4,290</div>
+                    <div class="product-warranty">6-Month Warranty</div>
+                    <div class="product-specs">Double Door · Frost Free</div>
+                </div>
+            </div>
+
+            <!-- Complete Price List Section -->
+            <div class="price-section">
+                <h3 style="color: #4a3729; text-align: center; margin-top: 0;">📋 Complete Price Lists</h3>
+                
+                <div class="price-grid">
+                    <div class="price-column">
+                        <h4>Under R 3,000</h4>
+                        <ul class="price-list">
+                            <li><span>KIC 180L</span> <span class="price">R 1,990</span></li>
+                            <li><span>LG 200L</span> <span class="price">R 2,290</span></li>
+                            <li><span>Defy 210L</span> <span class="price">R 2,490</span></li>
+                            <li><span>Samsung 222L</span> <span class="price">R 2,690</span></li>
+                            <li><span>Beko 220L</span> <span class="price">R 2,450</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="price-column">
+                        <h4>R 3,000 - R 4,000</h4>
+                        <ul class="price-list">
+                            <li><span>Bosch 250L</span> <span class="price">R 3,490</span></li>
+                            <li><span>Whirlpool 280L</span> <span class="price">R 3,290</span></li>
+                            <li><span>Hisense 265L</span> <span class="price">R 3,590</span></li>
+                            <li><span>LG 270L</span> <span class="price">R 3,890</span></li>
+                            <li><span>Samsung 310L</span> <span class="price">R 3,990</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="price-column">
+                        <h4>Premium (R 4,000+)</h4>
+                        <ul class="price-list">
+                            <li><span>Defy 400L</span> <span class="price">R 4,490</span></li>
+                            <li><span>Hisense 340L</span> <span class="price">R 4,290</span></li>
+                            <li><span>LG 320L</span> <span class="price">R 5,290</span></li>
+                            <li><span>Bosch 350L</span> <span class="price">R 4,990</span></li>
+                            <li><span>Whirlpool 380L</span> <span class="price">R 4,890</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1.5rem;"><small>* All prices include delivery in Maseru. Extended warranty available.</small></p>
+            </div>
+
+            <!-- Services Section -->
+            <h2>🛠️ Our Services</h2>
+            <div class="services">
+                <div class="service-item">
+                    <strong>🔧 Refurbishment Service</strong> - Complete cleaning, gas refill, and compressor check for your existing fridge. R 450 - R 1,200
+                </div>
+                <div class="service-item">
+                    <strong>🚚 Delivery & Installation</strong> - Free within Maseru for all fridge purchases. Same-day delivery available.
+                </div>
+                <div class="service-item">
+                    <strong>📋 Extended Warranty</strong> - Extend coverage to 12 months for R 350-R 600 depending on model.
+                </div>
+                <div class="service-item">
+                    <strong>🔄 Trade-In</strong> - Bring us your old fridge, get R 300-R 800 off your purchase.
+                </div>
+            </div>
+
+            <!-- Internal Link to Business Model -->
+            <p style="text-align: center; margin: 2rem 0;">
+                <a href="business.html" class="internal-link">📊 See How We Keep Prices Low (Business Model)</a>
+            </p>
+
+            <!-- Additional Image (Staff at work) -->
+            <div style="text-align: center; margin: 2rem 0;">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='200'%3E%3Crect width='600' height='200' fill='%23b78c6a'/%3E%3Ctext x='150' y='120' fill='%233b281d' font-size='24'%3ERefurbishment Workshop%3C/text%3E%3C/svg%3E" alt="Our workshop team refurbishing fridges" style="width: 100%; max-width: 600px; border-radius: 50px; border: 4px solid #b78c6a;">
+                <p><em>Our team preparing fridges for sale</em></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Boikano's Fridge Finds · Second-Hand Fridges · Lesotho</p>
+            <p>📞 +266 6819 9984 · 📧 boikanomatoetoe5910@gmail.com</p>
+            <p><a href="#">Internal Code of Conduct</a> · <a href="#">Partner NGOs (External Link)</a></p>
+        </footer>
+    </div>
+</body>
+</html>
